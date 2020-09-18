@@ -36,9 +36,11 @@ dependencies {
     // Architecture
     implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.navigation:navigation-ui:2.2.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.2.2")
-    implementation("androidx.navigation:navigation-fragment:2.2.2")
+    implementation("androidx.navigation:navigation-ui:2.3.0")
+    implementation("androidx.navigation:navigation-fragment:2.3.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.2.2")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
@@ -80,4 +82,5 @@ dependencies {
 
     implementation ("com.android.support:design:28.0.0")
     implementation ("com.android.support:appcompat-v7:28.0.0")
+
 }

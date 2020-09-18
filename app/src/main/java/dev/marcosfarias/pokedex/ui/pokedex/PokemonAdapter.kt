@@ -3,6 +3,7 @@ package dev.marcosfarias.pokedex.ui.pokedex
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -26,8 +27,7 @@ class PokemonAdapter(
         fun bindView(item: Pokemon) {
             itemView.textViewName.text = item.name
             itemView.textViewID.text = item.id
-
-            item.typeofpokemon?.getOrNull(0).let { firstType ->
+            item.pokemonTypes?.getOrNull(0).let { firstType ->
                 val firstTypeLowCase = firstType?.toLowerCase(Locale.ROOT)
                 val imageInt1: Int = itemView.context.resources.getIdentifier(
                     firstTypeLowCase,
@@ -42,7 +42,7 @@ class PokemonAdapter(
                 itemView.type1.isVisible = firstType != null
             }
 
-            item.typeofpokemon?.getOrNull(1).let { secondType ->
+            item.pokemonTypes?.getOrNull(1).let { secondType ->
                 itemView.type2.isVisible = secondType != null
                 if (secondType != null) {
                     val secondTypeLowCase = secondType.toLowerCase(Locale.ROOT)
@@ -60,7 +60,7 @@ class PokemonAdapter(
             }
 
             Glide.with(itemView.context)
-                .load(item.imageurl)
+                .load(item.image)
                 .placeholder(android.R.color.transparent)
                 .into(itemView.imageView)
         }

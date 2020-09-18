@@ -21,7 +21,7 @@ interface PokemonDAO {
     fun all(): LiveData<List<Pokemon>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(pokemon: List<Pokemon>)
+    fun add(pokemon: List<Pokemon>?)
 
     @Query("DELETE FROM pokemon")
     fun deleteAll()

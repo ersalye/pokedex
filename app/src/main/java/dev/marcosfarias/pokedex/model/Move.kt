@@ -14,7 +14,7 @@ class Move {
     var name: String? = null
     var type: String? = null
     var effect: String? = null
-    var power: String? = null
-    var accuracy: String? = null
-    var pp: String? = null
+    var power: Int? = null
+    var accuracy: Int? = null
+    var pp: Int? = null
 }

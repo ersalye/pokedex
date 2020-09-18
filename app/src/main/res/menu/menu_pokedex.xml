@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_pokedex"
+        android:id="@+id/pokedex"
         android:enabled="true"
         android:icon="@drawable/pokeball"
         android:title="@string/title_pokemon" />
 
     <item
-        android:id="@+id/navigation_moves"
+        android:id="@+id/moves"
         android:enabled="true"
         android:icon="@drawable/pokeball"
         android:title="@string/title_move" />
 
     <item
-        android:id="@+id/navigation_itens"
+        android:id="@+id/items"
         android:enabled="true"
         android:icon="@drawable/pokeball"
-        android:title="@string/title_itens" />
+        android:title="@string/title_items" />
 </menu>

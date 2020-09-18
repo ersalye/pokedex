@@ -1,9 +1,8 @@
-package dev.marcosfarias.pokedex.ui.moves
+package dev.marcosfarias.pokedex.ui.items
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -11,37 +10,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.marcosfarias.pokedex.R
+import dev.marcosfarias.pokedex.model.Item
 import dev.marcosfarias.pokedex.model.Move
-import dev.marcosfarias.pokedex.ui.pokedex.PokemonAdapter
+import kotlinx.android.synthetic.main.item_items.view.*
 import kotlinx.android.synthetic.main.item_moves.view.*
 import java.util.*
 
-class MovesAdapter(
-    private val list: List<Move>,
+class ItemsAdapter(
+    private val list: List<Item>,
     private val context: Context
-) : RecyclerView.Adapter<MovesAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ItemsAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Move) {
-            itemView.name.text = item.name
-            val type = item.type?.toLowerCase(Locale.ROOT)
-            val imageInt: Int = itemView.context.resources.getIdentifier(
-                type,
-                "drawable",
-                itemView.context.packageName
-            )
-
+        fun bindView(item: Item) {
+            itemView.item_name.text = item.name
+            itemView.price.text = item.price.toString()
+            val image = item.image
             Glide.with(itemView.context)
-                .load(imageInt)
-                .placeholder(R.drawable.bug)
-                .into(itemView.type)
+                .load(image)
+                .placeholder(R.drawable.beast_ball)
+                .into(itemView.image_item)
         }
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(context).inflate(R.layout.item_moves, parent, false)
+        val itemView = LayoutInflater.from(context).inflate(R.layout.item_items, parent, false)
         itemView.setOnTouchListener(View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
                 v.setBackgroundResource(R.drawable.with_selection_item)

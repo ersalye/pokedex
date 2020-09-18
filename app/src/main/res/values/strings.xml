@@ -36,4 +36,9 @@
     <string name="title_pokemon">Pokemon</string>
     <string name="title_move">Moves</string>
     <string name="title_itens">Itens</string>
+    <string name="moves">Moves</string>
+    <string name="tackle">Tackle</string>
+    <string name="title_items">Items</string>
+    <string name="_1000">1000</string>
+    <string name="items">Items</string>
 </resources>

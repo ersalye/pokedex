@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import dev.marcosfarias.pokedex.database.dao.PokemonDAO
 import dev.marcosfarias.pokedex.model.Pokemon
+import dev.marcosfarias.pokedex.model.PokemonResponse
 import dev.marcosfarias.pokedex.repository.PokemonService
 import kotlin.concurrent.thread
 import retrofit2.Call
@@ -17,20 +18,20 @@ class PokedexViewModel(private val pokemonDAO: PokemonDAO, private val pokemonSe
     }
 
     private fun initNetworkRequest() {
-        val call = pokemonService.get()
-        call.enqueue(object : Callback<List<Pokemon>?> {
+        val call = pokemonService.getPokemon()
+        call.enqueue(object : Callback<PokemonResponse?> {
             override fun onResponse(
-                call: Call<List<Pokemon>?>?,
-                response: Response<List<Pokemon>?>?
+                call: Call<PokemonResponse?>,
+                response: Response<PokemonResponse?>
             ) {
-                response?.body()?.let { pokemons: List<Pokemon> ->
+                response.body()?.let { data: PokemonResponse ->
                     thread {
-                        pokemonDAO.add(pokemons)
+                        pokemonDAO.add(data.pokemons)
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<Pokemon>?>?, t: Throwable?) {
+            override fun onFailure(call: Call<PokemonResponse?>, t: Throwable) {
                 // TODO handle failure
             }
         })

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/splash_background">
-
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -17,9 +16,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/pokemon" />
+        android:text="@string/items" />
 
-    <TextView
+
+    <EditText
         android:id="@+id/search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,25 +30,25 @@
         android:background="@drawable/background_item_pokemon_span"
         android:gravity="center|start"
         android:paddingStart="40dp"
-        android:paddingLeft="40dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/search"
         android:textColor="#4f4f4f"
-        android:textSize="20sp"
+        android:hint="@string/search"
+        android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:ignore="RtlSymmetry" />
-
-
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="LabelFor,RtlSymmetry"
+        android:autofillHints=""
+        android:inputType="text" />
 
     <ImageView
         android:id="@+id/search_icon"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="@id/search_box"
         app:layout_constraintLeft_toLeftOf="@id/search_box"
@@ -57,9 +57,8 @@
 
     <ImageView
         android:id="@+id/micro_icon"
-        android:layout_width="35dp"
+        android:layout_width="30dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="@id/search_box"
         app:layout_constraintRight_toRightOf="@id/search_box"
@@ -74,13 +73,25 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_box"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/bottom" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottom"
+        tools:listitem="@layout/item_items" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
